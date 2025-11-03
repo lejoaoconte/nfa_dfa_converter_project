@@ -22,7 +22,7 @@
 
 // --- Função Pública ---
 
-int nfa_to_dfa_convert(NFA *nfa, DFA *dfa)
+bool nfa_to_dfa_convert(NFA *nfa, DFA *dfa)
 {
     printf("\n\n--- Starting conversion NFA → DFA ---\n");
 
@@ -31,7 +31,7 @@ int nfa_to_dfa_convert(NFA *nfa, DFA *dfa)
     if (nfa->start_state_index == -1)
     {
         fprintf(stderr, "ERROR: NFA has no initial state defined.\n");
-        return 0;
+        return false;
     }
     // Verifica se há pelo menos um estado final.
     bool has_final = false;
@@ -48,7 +48,7 @@ int nfa_to_dfa_convert(NFA *nfa, DFA *dfa)
     if (!has_final)
     {
         fprintf(stderr, "ERROR: NFA has no final states defined.\n");
-        return 0;
+        return false;
     }
 
     // Verifica se há somente um estado inicial
@@ -67,7 +67,7 @@ int nfa_to_dfa_convert(NFA *nfa, DFA *dfa)
     if (initial_state_count != 1)
     {
         fprintf(stderr, "ERROR: NFA must have exactly one initial state.\n");
-        return 0;
+        return false;
     }
 
     // --- PASSO 1: Inicializar o DFA ---
@@ -153,7 +153,7 @@ int nfa_to_dfa_convert(NFA *nfa, DFA *dfa)
                 if (dfa->num_states >= MAX_DFA_STATES)
                 {
                     fprintf(stderr, "ERROR: Number of DFA states exceeds the limit of %d.\n", MAX_DFA_STATES);
-                    return 0; // Aborta a conversão
+                    return false; // Aborta a conversão
                 }
 
                 // Adiciona o novo estado ao DFA.
@@ -188,5 +188,5 @@ int nfa_to_dfa_convert(NFA *nfa, DFA *dfa)
     }
     printf("--- Conversion completed! DFA with %d states generated. ---\n", dfa->num_states);
 
-    return 1;
+    return true;
 }

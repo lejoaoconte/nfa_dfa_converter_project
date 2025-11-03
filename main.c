@@ -60,8 +60,7 @@ int main(int argc, char *argv[])
     // Declara a estrutura do AFD que será preenchida pela conversão.
     DFA dfa;
     // Executa o algoritmo de conversão.
-    int convert_result = nfa_to_dfa_convert(&nfa, &dfa);
-    if (convert_result == 0)
+    if (!nfa_to_dfa_convert(&nfa, &dfa))
     {
         fprintf(stderr, "Error: Conversion from NFA to DFA failed.\n");
         return 0;
