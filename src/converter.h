@@ -16,6 +16,6 @@
 
 // Executa o algoritmo de Construção de Subconjuntos.
 // Recebe o NFA (leitura) e preenche a estrutura DFA (escrita).
-int nfa_to_dfa_convert(NFA *nfa, DFA *dfa);
+bool nfa_to_dfa_convert(NFA *nfa, DFA *dfa);
 
 #endif // CONVERTER_H
