@@ -1,3 +1,5 @@
 main
 ./output/result.jff
 ./output/result.txt
+.DS_Store
+.vscode/
