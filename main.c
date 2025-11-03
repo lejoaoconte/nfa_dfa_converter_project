@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
     if (argc != 2)
     {
         fprintf(stderr, "Input: %s <file.jff>\n", argv[0]);
-        return 1; // Retorna 1 para indicar um erro.
+        return 0; // Retorna 0 para indicar um erro.
     }
 
     // Pega o nome do arquivo do segundo argumento ('argv[1]').
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
     if (!extension || strcmp(extension, ".jff") != 0)
     {
         fprintf(stderr, "Error: File must be JFLAP (.jff) format.\n");
-        return 1;
+        return 0;
     }
 
     // --- Execução Principal ---
@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
     if (!jflap_read_file(filename, &nfa))
     {
         fprintf(stderr, "Error: Can not read JFLAP file.\n");
-        return 1;
+        return 0;
     }
 
     // Se a leitura foi bem-sucedida, imprime o AFN lido no console.
