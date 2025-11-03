@@ -7,7 +7,7 @@
 ### Introdução
 
 Este trabalho tem como objetivo apresentar um conversor em C de arquivos JFLAP de Autômatos Finitos Não Deterministicos (AFN) em Autômatos Finitos Deterministicos (AFD) ou, nas siglas em inglês, que irá encontrar ao longo do código, DFA e NFA, na ordem.
-Basicamente a ideia principal do código foi entender como funciona um arquivo JFLAP, oude foi verificado que o mesmo tipo de arquivo é um arquivo do tipo .xml e após isso entender o mesmo, obter os dados do mesmo e fazer a covnersão dos dados, imprimindo novamente outro .xml. Abaixo está um exemplo do tipo de arquivo do JFLAP
+Primeiro, foi fundamental para o desenvolvimento do trabalho entender como funciona um arquivo JFLAP, onde foi verificado que se trata de um arquivo do tipo .xml. Em segundo ponto, obter-se os dados do mesmo e fazer a conversão, imprimindo novamente outro .xml. Abaixo está um exemplo do tipo de arquivo do JFLAP:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><!--Created with JFLAP 7.1.--><structure>
@@ -101,11 +101,9 @@ nfa_dfa_converter_project
     │   test5_error.jff
 ```
 
-Onde podemos encontrar todos arquivos necessários para rodar o mesmo.
-
 ### Funções e Estruturas
 
-Neste ponto será apresentado o que está dentro de cada função do projeto, onde irá ser visto a ordem correta de apresentar o mesmo.
+Neste tópico, serão apresentados os códigos realizados e seus objetivos.
 
 #### ARQUIVO: main.c
 
@@ -1242,4 +1240,4 @@ void dfa_save_jflap(DFA *dfa, NFA *nfa, const char *filename)
 ```
 
 ### Conclusão
-A principal dificuldade encontrada no trabalho foi entender a forma que é feita a conversão de um autômato não deterministico para um deterministico e implementar a lógica no código, podemos concluir que o trabalho demonstrou com clareza como funciona a conversão de um tipo de autômato para outro e pode ser entendido com profundidade a ideia.
+O trabalho iniciou-se com duas dificuldades principais: primeiramente, como receber um arquivo JFLAP e, em segundo lugar, a compreensão e implementação do algoritmo de conversão de Autômatos Finitos Não Determinísticos (AFN) para Determinísticos (AFD). O primeiro obstáculo foi superado ao identificar que os arquivos JFLAP são estruturados em formato XML, o que permitiu seu correto processamento. Uma vez resolvida a entrada de dados, o foco foi direcionado à lógica de conversão, que resumidamente se concentrou inicialmente na identificação dos estados e do alfabeto. Conclui-se então, que o trabalho alcançou seu objetivo, demonstrando o processo de transformação entre os tipos de autômatos e permitindo a compreensão do mesmo.
